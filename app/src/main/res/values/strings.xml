@@ -3,9 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hanoi_greeting">Hà Nội, Việt nam</string>
-<string name="hotel_tittle">Khách sạn</string>
-<string name="atm_tittle">ATM</string>
-<string name="hospital_tittle">Bệnh viện</string>
-<string name="bus_title">Bus</string>
+    <string name="hotel_tittle">Khách sạn</string>
+    <string name="atm_tittle">ATM</string>
+    <string name="hospital_tittle">Bệnh viện</string>
+    <string name="bus_title">Bus</string>
 
 </resources>

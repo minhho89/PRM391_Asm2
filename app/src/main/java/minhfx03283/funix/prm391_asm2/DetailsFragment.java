@@ -235,6 +235,19 @@ public class DetailsFragment extends Fragment {
             }
             lnlImageView.setBackgroundColor(getResources().getColor(R.color.white));
 
+            lnlViewHolder.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Fragment fragment = new MapFragment();
+
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.frame_layout, fragment)
+                            .addToBackStack(null)
+                            .commit();
+                }
+            });
+
         }
 
 
