@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="iconPadding">10sp</dimen>
+    <dimen name="iconPaddingLg">20sp</dimen>
+    <dimen name="edgePadding">5sp</dimen>
+    <dimen name="main_greeting_text">20sp</dimen>
+    <dimen name="tittle_text">15sp</dimen>
+    <dimen name="main_image_size">200dp</dimen>
+</resources>
