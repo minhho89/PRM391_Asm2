@@ -1,5 +1,8 @@
 package minhfx03283.funix.prm391_asm2;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -7,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -19,12 +23,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 
 public class MapFragment extends Fragment {
@@ -81,7 +90,7 @@ public class MapFragment extends Fragment {
 
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         if (actionBar != null) {
-            Toast.makeText(this.getContext(), "action bar: !null " + (actionBar!=null),
+            Toast.makeText(this.getContext(), "action bar: !null " + (actionBar != null),
                     Toast.LENGTH_SHORT).show();
             actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -95,12 +104,21 @@ public class MapFragment extends Fragment {
         // Initialize map fragment
         SupportMapFragment supportMapFragment = (SupportMapFragment)
                 getChildFragmentManager().findFragmentById(R.id.google_map);
-        
+
 
         // Async map
         supportMapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
+                LatLng someLocation = new LatLng(10.045162, 105.746857);
+                MarkerOptions markerOptions = new MarkerOptions()
+                        .position(someLocation)
+                        .title("SOME LOCATION");
+
+                googleMap.addMarker(markerOptions);
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(someLocation, 10));
+
+
                  // When map is loaded
                 googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                     @Override
@@ -124,8 +142,11 @@ public class MapFragment extends Fragment {
                     }
                 });
             }
+
         });
 
         return view;
     }
+
+
 }
