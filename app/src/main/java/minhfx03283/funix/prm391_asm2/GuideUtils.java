@@ -1,5 +1,7 @@
 package minhfx03283.funix.prm391_asm2;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,15 +26,14 @@ public class GuideUtils {
         List<GuideType> filteredList = new ArrayList<>();
 
         // Hospitals
-        guideTypes.add(new GuideType(HOSPITAL, "bv1", "Bệnh Viện Hữu Nghị", "Số 1 – Trần Khánh Dư – Quận Hai Bà Trưng – Hà Nội"));
-        guideTypes.add(new GuideType(HOSPITAL, "bv2", "Bệnh Viện E, Hà Nội", "89 – Trần Cung – Nghĩa Tân – Cầu Giấy – Hà Nội"));
-        guideTypes.add(new GuideType(HOSPITAL, "bv3", "Viện Răng Hàm Mặt", "40B – Tràng Thi – Hoàn Kiếm – Hà Nội"));
-        guideTypes.add(new GuideType(HOSPITAL, "bv4", "Bệnh Viện Tai Mũi Họng Trung Ương", "78 – Đường Giải Phóng – Quận Đống Đa – Hà Nội"));
-        guideTypes.add(new GuideType(HOSPITAL, "bv5", "Viện Y Học Cổ Truyền Trung Ương", "29 – Phố Nguyễn Bỉnh Khiêm – Quận Hai Bà Trưng – Hà Nội"));
-        guideTypes.add(new GuideType(HOSPITAL, "bv6", "Bệnh Viện Nội Tiết", "80 – Thái Thịnh II – Thịnh Quang – Đống Đa – Hà Nội"));
-        guideTypes.add(new GuideType(HOSPITAL, "bv7", "Bệnh Viện Hữu Nghị", "Số 1 – Trần Khánh Dư – Quận Hai Bà Trưng – Hà Nội"));
-        guideTypes.add(new GuideType(HOSPITAL, "bv8", "Bệnh Viện Việt Đức", "8 – Phố Phủ Doãn – Quận Hoàn Kiếm – Hà Nội"));
-        guideTypes.add(new GuideType(HOSPITAL, "bv9", "Bệnh Viện Nhi Trung Ương", "18/879 – Đường La Thành – Quận Đống Đa – Hà Nội"));
+        guideTypes.add(new GuideType(HOSPITAL, "bv1", "Bệnh Viện Hữu Nghị", "Số 1 – Trần Khánh Dư – Quận Hai Bà Trưng – Hà Nội", new LatLng(21.015531, 105.861770)));
+        guideTypes.add(new GuideType(HOSPITAL, "bv2", "Bệnh Viện E, Hà Nội", "89 – Trần Cung – Nghĩa Tân – Cầu Giấy – Hà Nội", new LatLng(21.050158037837218, 105.78951708664282)));
+        guideTypes.add(new GuideType(HOSPITAL, "bv3", "Viện Răng Hàm Mặt", "40B – Tràng Thi – Hoàn Kiếm – Hà Nội", new LatLng(21.027560178845448, 105.84639895496508)));
+        guideTypes.add(new GuideType(HOSPITAL, "bv4", "Bệnh Viện Tai Mũi Họng Trung Ương", "78 – Đường Giải Phóng – Quận Đống Đa – Hà Nội", new LatLng(20.999707867276324, 105.84061309691533)));
+        guideTypes.add(new GuideType(HOSPITAL, "bv5", "Viện Y Học Cổ Truyền Trung Ương", "29 – Phố Nguyễn Bỉnh Khiêm – Quận Hai Bà Trưng – Hà Nội", new LatLng(21.01615659204759, 105.84862279691569)));
+        guideTypes.add(new GuideType(HOSPITAL, "bv6", "Bệnh Viện Nội Tiết", "80 – Thái Thịnh II – Thịnh Quang – Đống Đa – Hà Nội", new LatLng(21.01257386507698, 105.81510834837957)));
+        guideTypes.add(new GuideType(HOSPITAL, "bv8", "Bệnh Viện Việt Đức", "8 – Phố Phủ Doãn – Quận Hoàn Kiếm – Hà Nội", new LatLng(21.028507563986658, 105.84733484478676)));
+        guideTypes.add(new GuideType(HOSPITAL, "bv9", "Bệnh Viện Nhi Trung Ương", "18/879 – Đường La Thành – Quận Đống Đa – Hà Nội", new LatLng(21.025969075883534, 105.80965283924527)));
 
         // ATM
         guideTypes.add(new GuideType(ATM, "atm1", "ATM Hoàn Kiếm", "17 phố Lý Thường Kiệt, Phường Phan Chu Trinh, Quận Hoàn Kiếm, Hà Nội"));

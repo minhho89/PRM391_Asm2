@@ -239,6 +239,11 @@ public class DetailsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Fragment fragment = new MapFragment();
+                    // Send object to map fragment from this gragment
+
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("GuideType", guideType);
+                    fragment.setArguments(bundle);
 
                     getActivity().getSupportFragmentManager()
                             .beginTransaction()

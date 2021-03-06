@@ -38,10 +38,15 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 public class MapFragment extends Fragment {
 
+    GuideType mGuideType;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        Bundle bundle = this.getArguments();
+        mGuideType = bundle.getParcelable("GuideType");
     }
 
     @Override
@@ -65,12 +70,6 @@ public class MapFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
-            // This ID represents the Home or Up button. In the case of this
-            // activity, the Up button is shown.
-            // NavUtils allows users to navigate up one level in the
-            // application structure.
-//            NavUtils.navigateUpTo(this.getActivity(),
-//                    new Intent(this.getContext(), MainActivity.class));
             FragmentManager fm = getActivity().getSupportFragmentManager();
             fm.popBackStack();
             return true;
@@ -97,8 +96,8 @@ public class MapFragment extends Fragment {
             actionBar.setHomeAsUpIndicator(R.drawable.ic_back);
             actionBar.setDisplayShowHomeEnabled(true);
         }
-        // Todo: get name of place
-        toolbar.setTitle("MAP");
+
+        toolbar.setTitle(mGuideType.getName());
 
 
         // Initialize map fragment
@@ -110,13 +109,13 @@ public class MapFragment extends Fragment {
         supportMapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
-                LatLng someLocation = new LatLng(10.045162, 105.746857);
+                LatLng location = mGuideType.getLatLng();
                 MarkerOptions markerOptions = new MarkerOptions()
-                        .position(someLocation)
-                        .title("SOME LOCATION");
+                        .position(location)
+                        .title(mGuideType.getName());
 
                 googleMap.addMarker(markerOptions);
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(someLocation, 10));
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
 
 
                  // When map is loaded
