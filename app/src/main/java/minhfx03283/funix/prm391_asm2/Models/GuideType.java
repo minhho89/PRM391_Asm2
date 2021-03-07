@@ -1,4 +1,4 @@
-package minhfx03283.funix.prm391_asm2;
+package minhfx03283.funix.prm391_asm2.Models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -18,13 +18,6 @@ public class GuideType implements Parcelable {
     private LatLng mLatLng;
 
     public GuideType() {
-    }
-
-    public GuideType(int mType, String mId, String mName, String mAddress) {
-        this.mType = mType;
-        this.mId = mId;
-        this.mName = mName;
-        this.mAddress = mAddress;
     }
 
     public GuideType(int mType, String mId, String mName, String mAddress, LatLng mLatLng) {

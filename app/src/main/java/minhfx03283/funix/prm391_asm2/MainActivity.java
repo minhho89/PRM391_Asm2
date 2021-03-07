@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import minhfx03283.funix.prm391_asm2.Fragments.MainMenuFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
