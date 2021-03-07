@@ -1,4 +1,4 @@
-package minhfx03283.funix.prm391_asm2;
+package minhfx03283.funix.prm391_asm2.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -26,10 +26,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static minhfx03283.funix.prm391_asm2.GuideType.ATM;
-import static minhfx03283.funix.prm391_asm2.GuideType.RESTAURANT;
-import static minhfx03283.funix.prm391_asm2.GuideType.HOSPITAL;
-import static minhfx03283.funix.prm391_asm2.GuideType.HOTEL;
+import minhfx03283.funix.prm391_asm2.Models.GuideType;
+import minhfx03283.funix.prm391_asm2.Models.GuideUtils;
+import minhfx03283.funix.prm391_asm2.R;
+
+import static minhfx03283.funix.prm391_asm2.Models.GuideType.ATM;
+import static minhfx03283.funix.prm391_asm2.Models.GuideType.RESTAURANT;
+import static minhfx03283.funix.prm391_asm2.Models.GuideType.HOSPITAL;
+import static minhfx03283.funix.prm391_asm2.Models.GuideType.HOTEL;
 
 /**
  * Handles displaying the list of places fragment

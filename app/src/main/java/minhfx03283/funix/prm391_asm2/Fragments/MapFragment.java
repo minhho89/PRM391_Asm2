@@ -1,4 +1,4 @@
-package minhfx03283.funix.prm391_asm2;
+package minhfx03283.funix.prm391_asm2.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,6 +22,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import minhfx03283.funix.prm391_asm2.Models.GuideType;
+import minhfx03283.funix.prm391_asm2.R;
 
 /**
  * Handles displaying map when user tab on a place

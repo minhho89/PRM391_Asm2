@@ -1,4 +1,4 @@
-package minhfx03283.funix.prm391_asm2;
+package minhfx03283.funix.prm391_asm2.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import minhfx03283.funix.prm391_asm2.Models.GuideType;
+import minhfx03283.funix.prm391_asm2.R;
 
 /**
  * Controls MainMenu Fragment

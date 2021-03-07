@@ -1,4 +1,4 @@
-package minhfx03283.funix.prm391_asm2;
+package minhfx03283.funix.prm391_asm2.Models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

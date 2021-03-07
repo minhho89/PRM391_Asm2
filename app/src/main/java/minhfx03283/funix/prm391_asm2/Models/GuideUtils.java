@@ -1,14 +1,14 @@
-package minhfx03283.funix.prm391_asm2;
+package minhfx03283.funix.prm391_asm2.Models;
 
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static minhfx03283.funix.prm391_asm2.GuideType.ATM;
-import static minhfx03283.funix.prm391_asm2.GuideType.RESTAURANT;
-import static minhfx03283.funix.prm391_asm2.GuideType.HOSPITAL;
-import static minhfx03283.funix.prm391_asm2.GuideType.HOTEL;
+import static minhfx03283.funix.prm391_asm2.Models.GuideType.ATM;
+import static minhfx03283.funix.prm391_asm2.Models.GuideType.RESTAURANT;
+import static minhfx03283.funix.prm391_asm2.Models.GuideType.HOSPITAL;
+import static minhfx03283.funix.prm391_asm2.Models.GuideType.HOTEL;
 
 public class GuideUtils {
     private List<GuideType> mGuideTypeList;
