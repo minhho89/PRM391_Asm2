@@ -21,12 +21,18 @@ public class GuideUtils {
     }
 
 
+    /**
+     * Add bulk places to dataset
+     * @param TYPE type of places
+     * @return list of guide places following type
+     */
     public List<GuideType> addBulkPlaces(int TYPE) {
         List<GuideType> guideTypes = new ArrayList<>();
         List<GuideType> filteredList = new ArrayList<>();
 
         // Hospitals
-        guideTypes.add(new GuideType(HOSPITAL, "bv1", "Bệnh Viện Hữu Nghị", "Số 1 – Trần Khánh Dư – Quận Hai Bà Trưng – Hà Nội", new LatLng(21.015531, 105.861770)));
+        guideTypes.add(new GuideType(HOSPITAL,
+                "bv1", "Bệnh Viện Hữu Nghị", "Số 1 – Trần Khánh Dư – Quận Hai Bà Trưng – Hà Nội", new LatLng(21.015531, 105.861770)));
         guideTypes.add(new GuideType(HOSPITAL, "bv2", "Bệnh Viện E, Hà Nội", "89 – Trần Cung – Nghĩa Tân – Cầu Giấy – Hà Nội", new LatLng(21.050158037837218, 105.78951708664282)));
         guideTypes.add(new GuideType(HOSPITAL, "bv3", "Viện Răng Hàm Mặt", "40B – Tràng Thi – Hoàn Kiếm – Hà Nội", new LatLng(21.027560178845448, 105.84639895496508)));
         guideTypes.add(new GuideType(HOSPITAL, "bv4", "Bệnh Viện Tai Mũi Họng Trung Ương", "78 – Đường Giải Phóng – Quận Đống Đa – Hà Nội", new LatLng(20.999707867276324, 105.84061309691533)));

@@ -20,13 +20,6 @@ public class GuideType implements Parcelable {
     public GuideType() {
     }
 
-    public GuideType(int mType, String mId, String mName, String mAddress) {
-        this.mType = mType;
-        this.mId = mId;
-        this.mName = mName;
-        this.mAddress = mAddress;
-    }
-
     public GuideType(int mType, String mId, String mName, String mAddress, LatLng mLatLng) {
         this.mType = mType;
         this.mId = mId;

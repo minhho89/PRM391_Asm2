@@ -1,74 +1,41 @@
 package minhfx03283.funix.prm391_asm2;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.pm.PackageManager;
-import android.graphics.Camera;
-import android.graphics.Color;
-import android.location.Location;
-import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.annotation.LongDef;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolylineOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-
+/**
+ * Handles displaying map when user tab on a place
+ */
 public class MapFragment extends Fragment {
 
     GuideType mGuideType;
-    GoogleMap googleMap;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
 
+        // Bring data of place from Details fragment to this fragment
         Bundle bundle = this.getArguments();
         mGuideType = bundle.getParcelable("GuideType");
     }
@@ -88,7 +55,7 @@ public class MapFragment extends Fragment {
      * Performs action if the user selects the Up button.
      *
      * @param item Menu item selected (Up button)
-     * @return
+     * @return true if option selected, otherwise returns false
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -133,15 +100,14 @@ public class MapFragment extends Fragment {
             public void onMapReady(GoogleMap googleMap) {
                 LatLng location = mGuideType.getLatLng();
 
-                    MarkerOptions markerOptions = new MarkerOptions()
-                            .position(location)
-                            .title(mGuideType.getName());
+                MarkerOptions markerOptions = new MarkerOptions()
+                        .position(location)
+                        .title(mGuideType.getName());
 
-                    googleMap.addMarker(markerOptions);
+                googleMap.addMarker(markerOptions);
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
 
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
-
-                 // When map is loaded
+                // When map is loaded
                 googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                     @Override
                     public void onMapClick(LatLng latLng) {
@@ -160,7 +126,6 @@ public class MapFragment extends Fragment {
                         ));
                         // Add marker on map
                         googleMap.addMarker(markerOptions);
-
 
                     }
                 });
