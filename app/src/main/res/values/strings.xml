@@ -6,6 +6,6 @@
     <string name="hotel_tittle">Khách sạn</string>
     <string name="atm_tittle">ATM</string>
     <string name="hospital_tittle">Bệnh viện</string>
-    <string name="bus_title">Bus</string>
+    <string name="restaurant_tittle">Quán ăn</string>
 
 </resources>

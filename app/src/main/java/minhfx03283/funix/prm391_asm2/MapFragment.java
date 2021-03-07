@@ -1,10 +1,15 @@
 package minhfx03283.funix.prm391_asm2;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
+import android.graphics.Camera;
+import android.graphics.Color;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.LongDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -14,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,14 +37,32 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 
 public class MapFragment extends Fragment {
 
     GuideType mGuideType;
+    GoogleMap googleMap;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -89,8 +113,6 @@ public class MapFragment extends Fragment {
 
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         if (actionBar != null) {
-            Toast.makeText(this.getContext(), "action bar: !null " + (actionBar != null),
-                    Toast.LENGTH_SHORT).show();
             actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_back);
@@ -110,13 +132,14 @@ public class MapFragment extends Fragment {
             @Override
             public void onMapReady(GoogleMap googleMap) {
                 LatLng location = mGuideType.getLatLng();
-                MarkerOptions markerOptions = new MarkerOptions()
-                        .position(location)
-                        .title(mGuideType.getName());
 
-                googleMap.addMarker(markerOptions);
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
+                    MarkerOptions markerOptions = new MarkerOptions()
+                            .position(location)
+                            .title(mGuideType.getName());
 
+                    googleMap.addMarker(markerOptions);
+
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
 
                  // When map is loaded
                 googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
@@ -137,6 +160,7 @@ public class MapFragment extends Fragment {
                         ));
                         // Add marker on map
                         googleMap.addMarker(markerOptions);
+
 
                     }
                 });

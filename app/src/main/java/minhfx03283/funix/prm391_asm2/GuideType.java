@@ -9,7 +9,7 @@ public class GuideType implements Parcelable {
     public static final int  HOTEL = 1;
     public static final int ATM = 2;
     public static final int HOSPITAL = 3;
-    public static final int BUS = 4;
+    public static final int RESTAURANT = 4;
 
     private int mType;
     private String mId;
