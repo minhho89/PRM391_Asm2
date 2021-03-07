@@ -1,7 +1,6 @@
 package minhfx03283.funix.prm391_asm2;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,17 +12,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NavUtils;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static minhfx03283.funix.prm391_asm2.GuideType.ATM;
-import static minhfx03283.funix.prm391_asm2.GuideType.BUS;
+import static minhfx03283.funix.prm391_asm2.GuideType.RESTAURANT;
 import static minhfx03283.funix.prm391_asm2.GuideType.HOSPITAL;
 import static minhfx03283.funix.prm391_asm2.GuideType.HOTEL;
 
@@ -117,9 +113,9 @@ public class DetailsFragment extends Fragment {
                 mGuideTypes = mGuideUtils.addBulkPlaces(HOSPITAL);
                 toolbar.setTitle(getResources().getString(R.string.hospital_tittle));
                 break;
-            case BUS:
-                mGuideTypes = mGuideUtils.addBulkPlaces(BUS);
-                toolbar.setTitle(getResources().getString(R.string.bus_title));
+            case RESTAURANT:
+                mGuideTypes = mGuideUtils.addBulkPlaces(RESTAURANT);
+                toolbar.setTitle(getResources().getString(R.string.restaurant_tittle));
                 break;
             default:
                 break;
@@ -227,13 +223,31 @@ public class DetailsFragment extends Fragment {
                     lnlContents.setBackgroundColor(getResources().getColor(R.color.pink_hospital));
                     lnlViewHolder.setBackgroundColor(getResources().getColor(R.color.pink_hospital));
                     break;
-                case BUS:
-                    imgIcon.setImageResource(R.drawable.metro);
+                case RESTAURANT:
+                    imgIcon.setImageResource(R.drawable.restaurant_dish);
                     lnlContents.setBackgroundColor(getResources().getColor(R.color.hoki_bus));
                     lnlViewHolder.setBackgroundColor(getResources().getColor(R.color.hoki_bus));
                     break;
             }
             lnlImageView.setBackgroundColor(getResources().getColor(R.color.white));
+
+            lnlViewHolder.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Fragment fragment = new MapFragment();
+                    // Send object to map fragment from this gragment
+
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("GuideType", guideType);
+                    fragment.setArguments(bundle);
+
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.frame_layout, fragment)
+                            .addToBackStack(null)
+                            .commit();
+                }
+            });
 
         }
 

@@ -1,11 +1,7 @@
 package minhfx03283.funix.prm391_asm2;
 
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 
-import androidx.activity.OnBackPressedCallback;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -15,14 +11,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import static minhfx03283.funix.prm391_asm2.GuideType.HOTEL;
 
@@ -84,7 +75,7 @@ public class MainMenuFragment extends Fragment {
         ImageButton imbHotel = rootView.findViewById(R.id.imb_hotel);
         ImageButton imbAtm = rootView.findViewById(R.id.imb_atm);
         ImageButton imbHospital = rootView.findViewById(R.id.imb_hospital);
-        ImageButton imbBus = rootView.findViewById(R.id.imb_bus);
+        ImageButton imbBus = rootView.findViewById(R.id.imb_restaurant);
 
         imbHotel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +112,7 @@ public class MainMenuFragment extends Fragment {
             public void onClick(View v) {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.frame_layout, new DetailsFragment(GuideType.BUS)).addToBackStack(null).commit();
+                ft.replace(R.id.frame_layout, new DetailsFragment(GuideType.RESTAURANT)).addToBackStack(null).commit();
             }
         });
 

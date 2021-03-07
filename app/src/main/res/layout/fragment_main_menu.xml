@@ -150,19 +150,19 @@
                     android:layout_weight=".5"
                     android:orientation="vertical">
                     <ImageButton
-                        android:id="@+id/imb_bus"
+                        android:id="@+id/imb_restaurant"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:scaleType="fitCenter"
                         android:background="@android:color/transparent"
                         android:layout_weight=".7"
-                        android:src="@drawable/metro"
-                        android:contentDescription="@string/bus_title" />
+                        android:src="@drawable/restaurant_dish"
+                        android:contentDescription="@string/restaurant_tittle" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/bus_title"
+                        android:text="@string/restaurant_tittle"
                         android:gravity="center"
                         android:textSize="@dimen/tittle_text"/>
 
